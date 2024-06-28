@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/Base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<div class="container text-center">
+					<img style="height: 200px; width: 200px;" class="my_profile_picture" alt="profilePhoto" th:src="@{'/image/'+${user.imageUrl}}">
+					<br>
+				<h1 class="text-center" th:text="${user.userName}"></h1>
+				</div>
+				
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">#USERID</th>
+				      <td scope="row" th:text="${'USN2023-'+user.id}"></td>
+				    </tr>
+				    
+				    <!--<tr>
+				      <th scope="col">User NAme</th>
+				      <td scope="row" th:text="${user.userName}"></td>
+				    </tr>-->
+				    
+				    <tr>
+				      <th scope="col">User Email</th>
+				      <td scope="row" th:text="${user.email}"></td>
+				    </tr>
+				    
+				    <tr>
+				      <th scope="col">User Role</th>
+				      <td scope="row" th:text="${user.role}"></th>
+				    </tr>
+				    
+				    <tr>
+				      <th scope="col">Account Active</th>
+				      <td scope="row" th:text="${user.enable}"></th>
+				    </tr>
+				    
+				    <tr>
+				      <th scope="col">About You</th>
+				      <td scope="row" th:text="${user.about}"></th>
+				    </tr>
+				 
+				  </thead>
+				  
+				</table>
+			</div>
+			<div class="d-grid gap-2">
+					<!--<a th:href="@{'/user/delete'+${contact.cId}}" class="btn btn-danger btn-sm ">Delete</a>-->
+					<form method="post" th:action="@{'/user/editeUserProfile/'+${user.id} }" class="mt-2">
+						<div class="d-grid gap-2">
+							<button
+						 		type="submit" class="btn btn-primary "> Update</button>
+						 </div>
+					</form>
+				</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

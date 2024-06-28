@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.my_profile_picture{
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
+}
